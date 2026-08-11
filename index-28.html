@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1F2A24" />
+<meta name="description" content="A daily learning journal for physics, mathematics, computation and the world — built by a physicist." />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Logbook" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<title>Logbook</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-is@18/umd/react-is.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types/prop-types.min.js" crossorigin></script>
+<script src="https://unpkg.com/recharts@2/umd/Recharts.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  .mono { font-family: 'Space Mono', monospace; }
+  body { margin: 0; font-family: 'Source Serif 4', Georgia, serif; }
+  ::selection { background: #2B4C7E33; }
+</style>
+
+<script>
+  // Dynamically-built manifest (keeps everything in this one HTML file)
+  (function () {
+    const manifest = {
+      name: "Logbook — Physics, Math & the World",
+      short_name: "Logbook",
+      start_url: ".",
+      scope: ".",
+      display: "standalone",
+      background_color: "#F1F3EC",
+      theme_color: "#1F2A24",
+      icons: [
+        { src: "data:image/png;base64,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", sizes: "192x192", type: "image/png" },
+        { src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAR/klEQVR4nO3dWYxd9X3A8XPXWTye8YKNscGAg43iAiZkgQJJlAalTkmoeGjTpBLqQyuhNq2UoKpqlfahqpqkCn1oE6lR+tZGRImapG1ISVMaEgh7IWDiEC+AV+zx2B7PfudufQCVJjXGpufM9f3/Ph8hIVn43L90uOd7z/L/n9KlW6/IAIin3OsBANAbAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABFXt1Qc/+9ijvfpogPPKNdff0JPPdQYAEJQAAAQlAABBCQBAUAIAEJQAAAQlAABB9WwewOvp1fOwAEU73+Y/OQMACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgqGqvB0Cx7to+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hCkQAOAcHJ4s3/PoYK9HQT4EADhbp+ZLn713pNGKsqhG8gQAOCsLzdJnvz0y7t0vCXEhD3hj883SX9+37MVj5v0mRQCANzAxU/6rby87YNXP5AgAcCZ7xyufu2/Z5JwrPwkSAOD0mu3sG08N/svTg20zfhMlAMBp7DpS/eIDQ4cnXfZJmQAAP+Olico3/mvwiRe96SV9AgC8avfR6jefGnhqX63XA2GJCABEd2K2/MPdtR/sqh/0nE8wAgBBHTlV3nGw9sSLtecOVbsu94QkABDI+HR573hlx8HajoPVCXN6wxMASNbUfOnYdPnQZOWlicq+icpLE5W5Rcv48BoBgL7R7mStTqndyVrtrN0ptTpZo1WabZRmG6WZhdJMozTbKJ2aLx+fKR2bLh+bLi9atY0zEoDE3X3fsl4Pob8dnqx89O9W9HoUUAgXAQGCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCqvZ6AD/v2cce7fUQAEJwBgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEGVLt16Ra/HAEAPOAMACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICg/hsY7I3nHVFSjQAAAABJRU5ErkJggg==", sizes: "512x512", type: "image/png", purpose: "any maskable" }
+      ]
+    };
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = URL.createObjectURL(blob);
+    document.head.appendChild(link);
+  })();
+</script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+
+const ICON_192 = "data:image/png;base64,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";
+const ICON_512 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAR/klEQVR4nO3dWYxd9X3A8XPXWTye8YKNscGAg43iAiZkgQJJlAalTkmoeGjTpBLqQyuhNq2UoKpqlfahqpqkCn1oE6lR+tZGRImapG1ISVMaEgh7IWDiEC+AV+zx2B7PfudufQCVJjXGpufM9f3/Ph8hIVn43L90uOd7z/L/n9KlW6/IAIin3OsBANAbAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEEJAEBQAgAQlAAABFXt1Qc/+9ijvfpogPPKNdff0JPPdQYAEJQAAAQlAABBCQBAUAIAEJQAAAQlAABB9WwewOvp1fOwAEU73+Y/OQMACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgqGqvB0Cx7to+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hCkQAOAcHJ4s3/PoYK9HQT4EADhbp+ZLn713pNGKsqhG8gQAOCsLzdJnvz0y7t0vCXEhD3hj883SX9+37MVj5v0mRQCANzAxU/6rby87YNXP5AgAcCZ7xyufu2/Z5JwrPwkSAOD0mu3sG08N/svTg20zfhMlAMBp7DpS/eIDQ4cnXfZJmQAAP+Olico3/mvwiRe96SV9AgC8avfR6jefGnhqX63XA2GJCABEd2K2/MPdtR/sqh/0nE8wAgBBHTlV3nGw9sSLtecOVbsu94QkABDI+HR573hlx8HajoPVCXN6wxMASNbUfOnYdPnQZOWlicq+icpLE5W5Rcv48BoBgL7R7mStTqndyVrtrN0ptTpZo1WabZRmG6WZhdJMozTbKJ2aLx+fKR2bLh+bLi9atY0zEoDE3X3fsl4Pob8dnqx89O9W9HoUUAgXAQGCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCEgCAoAQAICgBAAhKAACCqvZ6AD/v2cce7fUQAEJwBgAQlAAABCUAAEEJAEBQAgAQlAAABCUAAEGVLt16Ra/HAEAPOAMACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICgBAAgKAEACEoAAIISAICg/hsY7I3nHVFSjQAAAABJRU5ErkJggg==";
+
+const IconBase = ({ children, size = 16, strokeWidth = 2, style, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" style={style} className={className}>
+    {children}
+  </svg>
+);
+const Plus = (p) => <IconBase {...p}><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></IconBase>;
+const X = (p) => <IconBase {...p}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></IconBase>;
+const Trash2 = (p) => <IconBase {...p}><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></IconBase>;
+const Link2 = (p) => <IconBase {...p}><path d="M9 17H7a5 5 0 0 1 0-10h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></IconBase>;
+const Loader2 = (p) => <IconBase {...p}><path d="M21 12a9 9 0 1 1-9-9"/></IconBase>;
+const BookOpen = (p) => <IconBase {...p}><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H12v18H5.5A2.5 2.5 0 0 1 3 18.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H12v18h6.5a2.5 2.5 0 0 0 2.5-2.5z"/></IconBase>;
+const Settings2 = (p) => <IconBase {...p}><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></IconBase>;
+const BarChart3 = (p) => <IconBase {...p}><line x1="4" y1="20" x2="4" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="20" y1="20" x2="20" y2="14"/></IconBase>;
+const NotebookPen = (p) => <IconBase {...p}><rect x="4" y="4" width="12" height="16" rx="1"/><path d="M8 8h4M8 12h4"/><path d="M17.5 6.5l2 2-6 6H11.5v-2z"/></IconBase>;
+const Download = (p) => <IconBase {...p}><path d="M12 4v12"/><polyline points="7 12 12 17 17 12"/><path d="M5 20h14"/></IconBase>;
+const Upload = (p) => <IconBase {...p}><path d="M12 20V4"/><polyline points="7 9 12 4 17 9"/><path d="M5 20h14"/></IconBase>;
+const Flame = (p) => <IconBase {...p}><path d="M12 2c1 3-3 4-3 8a3 3 0 0 0 6 0c0-1-1-2-1-2s2 1 2 4a5 5 0 0 1-10 0c0-5 4-6 4-10 0-1 1-2 2-2z"/></IconBase>;
+
+const { useState, useEffect, useMemo } = React;
+const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = Recharts;
+
+// --- storage.js (localStorage-backed shim matching window.storage API) ---
+(function () {
+  const PREFIX = 'logbook';
+  function fullKey(key, shared) { return PREFIX + ':' + (shared ? 'shared' : 'user') + ':' + key; }
+  window.storage = {
+    async get(key, shared = false) {
+      const raw = window.localStorage.getItem(fullKey(key, shared));
+      if (raw === null) throw new Error('Key not found: ' + key);
+      return { key, value: raw, shared };
+    },
+    async set(key, value, shared = false) {
+      window.localStorage.setItem(fullKey(key, shared), value);
+      return { key, value, shared };
+    },
+    async delete(key, shared = false) {
+      window.localStorage.removeItem(fullKey(key, shared));
+      return { key, deleted: true, shared };
+    },
+    async list(prefix = '', shared = false) {
+      const searchPrefix = fullKey(prefix, shared);
+      const scopePrefix = PREFIX + ':' + (shared ? 'shared' : 'user') + ':';
+      const keys = Object.keys(window.localStorage).filter(k => k.startsWith(searchPrefix)).map(k => k.slice(scopePrefix.length));
+      return { keys, prefix, shared };
+    },
+  };
+})();
+
+const PALETTE = ['#2B4C7E', '#C69214', '#1E6E62', '#5B4B8A', '#A8472E', '#6B7A3A', '#8A4B6B', '#3E7CB1', '#B5533C', '#4B6B8A'];
+
+const DEFAULT_SUBJECTS = [
+  { id: 'physics', label: 'Physics · BSc/MSc', color: '#2B4C7E' },
+  { id: 'cgl', label: 'SSC CGL', color: '#C69214' },
+  { id: 'math', label: 'Mathematics', color: '#1E6E62' },
+  { id: 'cs', label: 'Computation', color: '#5B4B8A' },
+  { id: 'geo', label: 'Geopolitics & IR', color: '#A8472E' },
+  { id: 'teaching', label: 'Teaching', color: '#6B7A3A' },
+];
+
+const ENTRIES_KEY = 'physics-logbook:entries';
+const SUBJECTS_KEY = 'physics-logbook:subjects';
+
+const PAPER = '#F1F3EC';
+const INK = '#1F2A24';
+const GRID = '#CDD8C9';
+const CARD = '#FAFBF6';
+const BORDER = '#D9DFD1';
+const MUTED = '#5A6459';
+const REMOVED = { id: '__removed', label: 'Removed field', color: '#93998F' };
+
+function subjectOf(id, subjects) {
+  return subjects.find((s) => s.id === id) || REMOVED;
+}
+
+function todayISO() {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10);
+}
+
+function formatDateHeading(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function dayDiff(aISO, bISO) {
+  const a = new Date(aISO + 'T00:00:00');
+  const b = new Date(bISO + 'T00:00:00');
+  return Math.round((a - b) / 86400000);
+}
+
+function computeStreaks(entries) {
+  const days = Array.from(new Set(entries.map((e) => e.date))).sort();
+  if (days.length === 0) return { current: 0, longest: 0 };
+  let longest = 1;
+  let run = 1;
+  for (let i = 1; i < days.length; i++) {
+    if (dayDiff(days[i], days[i - 1]) === 1) {
+      run += 1;
+    } else {
+      run = 1;
+    }
+    longest = Math.max(longest, run);
+  }
+  const daySet = new Set(days);
+  let current = 0;
+  let cursor = todayISO();
+  if (!daySet.has(cursor)) {
+    const y = new Date(cursor + 'T00:00:00');
+    y.setDate(y.getDate() - 1);
+    cursor = y.toISOString().slice(0, 10);
+  }
+  while (daySet.has(cursor)) {
+    current += 1;
+    const d = new Date(cursor + 'T00:00:00');
+    d.setDate(d.getDate() - 1);
+    cursor = d.toISOString().slice(0, 10);
+  }
+  return { current, longest };
+}
+
+function startOfWeek(date) {
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = (day === 0 ? -6 : 1) - day;
+  d.setDate(d.getDate() + diff);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function buildBuckets(range) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const buckets = [];
+  if (range === 'weekly') {
+    const start = startOfWeek(today);
+    for (let i = 7; i >= 0; i--) {
+      const wkStart = new Date(start);
+      wkStart.setDate(wkStart.getDate() - i * 7);
+      const wkEnd = new Date(wkStart);
+      wkEnd.setDate(wkEnd.getDate() + 6);
+      buckets.push({
+        label: wkStart.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }),
+        start: wkStart,
+        end: wkEnd,
+      });
+    }
+  } else if (range === 'monthly') {
+    for (let i = 5; i >= 0; i--) {
+      const m = new Date(today.getFullYear(), today.getMonth() - i, 1);
+      const mEnd = new Date(today.getFullYear(), today.getMonth() - i + 1, 0);
+      buckets.push({
+        label: m.toLocaleDateString(undefined, { month: 'short', year: '2-digit' }),
+        start: m,
+        end: mEnd,
+      });
+    }
+  } else {
+    for (let i = 3; i >= 0; i--) {
+      const y = today.getFullYear() - i;
+      buckets.push({ label: String(y), start: new Date(y, 0, 1), end: new Date(y, 11, 31, 23, 59, 59) });
+    }
+  }
+  return buckets;
+}
+
+function inBucket(dateISO, bucket) {
+  const d = new Date(dateISO + 'T00:00:00');
+  return d >= bucket.start && d <= bucket.end;
+}
+
+function slugify(text, existingIds) {
+  let base = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'field';
+  let id = base;
+  let n = 1;
+  while (existingIds.includes(id)) {
+    id = `${base}-${n}`;
+    n += 1;
+  }
+  return id;
+}
+
+function App() {
+  const [loading, setLoading] = useState(true);
+  const [entries, setEntries] = useState([]);
+  const [subjects, setSubjects] = useState(DEFAULT_SUBJECTS);
+  const [filter, setFilter] = useState('all');
+  const [view, setView] = useState('journal');
+  const [manageOpen, setManageOpen] = useState(false);
+  const [newFieldName, setNewFieldName] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
+  const [grouping, setGrouping] = useState('category');
+  const [range, setRange] = useState('weekly');
+
+  const [form, setForm] = useState({ date: todayISO(), subjectId: 'physics', notes: '', link: '' });
+  const fileInputRef = React.useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [eRes, sRes] = await Promise.allSettled([
+          window.storage.get(ENTRIES_KEY, false),
+          window.storage.get(SUBJECTS_KEY, false),
+        ]);
+        if (eRes.status === 'fulfilled' && eRes.value && eRes.value.value) {
+          setEntries(JSON.parse(eRes.value.value));
+        }
+        if (sRes.status === 'fulfilled' && sRes.value && sRes.value.value) {
+          const loaded = JSON.parse(sRes.value.value);
+          if (Array.isArray(loaded) && loaded.length > 0) setSubjects(loaded);
+        }
+      } catch (e) {
+        // fall back to defaults / empty
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  async function persistEntries(next) {
+    setEntries(next);
+    try {
+      const result = await window.storage.set(ENTRIES_KEY, JSON.stringify(next), false);
+      if (!result) setError('Could not save — try again.');
+      else setError('');
+    } catch (e) {
+      setError('Could not save — try again.');
+    }
+  }
+
+  async function persistSubjects(next) {
+    setSubjects(next);
+    try {
+      await window.storage.set(SUBJECTS_KEY, JSON.stringify(next), false);
+    } catch (e) {
+      setError('Could not save fields — try again.');
+    }
+  }
+
+  async function addEntry() {
+    if (!form.notes.trim()) {
+      setError('Write at least a line before saving.');
+      return;
+    }
+    setSaving(true);
+    const entry = {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      date: form.date,
+      subjectId: form.subjectId,
+      notes: form.notes.trim(),
+      link: form.link.trim(),
+      createdAt: new Date().toISOString(),
+    };
+    await persistEntries([entry, ...entries]);
+    setForm({ date: todayISO(), subjectId: form.subjectId, notes: '', link: '' });
+    setSaving(false);
+  }
+
+  async function deleteEntry(id) {
+    await persistEntries(entries.filter((e) => e.id !== id));
+  }
+
+  async function clearAll() {
+    if (window.confirm('Clear every entry? This cannot be undone.')) {
+      await persistEntries([]);
+    }
+  }
+
+  function exportData() {
+    const payload = { exportedAt: new Date().toISOString(), entries, subjects };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `logbook-backup-${todayISO()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function triggerImport() {
+    fileInputRef.current?.click();
+  }
+
+  async function importData(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if (!Array.isArray(parsed.entries) || !Array.isArray(parsed.subjects)) {
+        throw new Error('bad shape');
+      }
+      const replace = window.confirm(
+        'Replace current data with this backup? Choose Cancel to merge instead of replace.'
+      );
+      if (replace) {
+        await persistEntries(parsed.entries);
+        await persistSubjects(parsed.subjects);
+      } else {
+        const existingIds = new Set(entries.map((x) => x.id));
+        const merged = [...entries, ...parsed.entries.filter((x) => !existingIds.has(x.id))];
+        const existingSubjectIds = new Set(subjects.map((x) => x.id));
+        const mergedSubjects = [...subjects, ...parsed.subjects.filter((x) => !existingSubjectIds.has(x.id))];
+        await persistEntries(merged);
+        await persistSubjects(mergedSubjects);
+      }
+      setError('');
+    } catch (err) {
+      setError('That file doesn\u2019t look like a logbook backup.');
+    } finally {
+      e.target.value = '';
+    }
+  }
+
+  async function addField() {
+    const name = newFieldName.trim();
+    if (!name) return;
+    const id = slugify(name, subjects.map((s) => s.id));
+    const usedColors = subjects.map((s) => s.color);
+    const color = PALETTE.find((c) => !usedColors.includes(c)) || PALETTE[subjects.length % PALETTE.length];
+    await persistSubjects([...subjects, { id, label: name, color }]);
+    setNewFieldName('');
+  }
+
+  async function updateField(id, patch) {
+    await persistSubjects(subjects.map((s) => (s.id === id ? { ...s, ...patch } : s)));
+  }
+
+  async function removeField(id) {
+    const count = entries.filter((e) => e.subjectId === id).length;
+    const msg = count > 0
+      ? `This field has ${count} entr${count === 1 ? 'y' : 'ies'}. They'll stay, just marked as "Removed field". Remove it anyway?`
+      : 'Remove this field?';
+    if (window.confirm(msg)) {
+      const next = subjects.filter((s) => s.id !== id);
+      await persistSubjects(next);
+      if (form.subjectId === id && next.length > 0) {
+        setForm((f) => ({ ...f, subjectId: next[0].id }));
+      }
+      if (filter === id) setFilter('all');
+    }
+  }
+
+  const { current: streak, longest: longestStreak } = useMemo(() => computeStreaks(entries), [entries]);
+
+  const subjectCounts = useMemo(() => {
+    const counts = {};
+    subjects.forEach((s) => (counts[s.id] = 0));
+    entries.forEach((e) => {
+      counts[e.subjectId] = (counts[e.subjectId] || 0) + 1;
+    });
+    return counts;
+  }, [entries, subjects]);
+
+  const maxCount = Math.max(1, ...Object.values(subjectCounts));
+
+  const filtered = useMemo(
+    () => (filter === 'all' ? entries : entries.filter((e) => e.subjectId === filter)),
+    [entries, filter]
+  );
+
+  const grouped = useMemo(() => {
+    const map = new Map();
+    filtered
+      .slice()
+      .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : b.createdAt.localeCompare(a.createdAt)))
+      .forEach((e) => {
+        if (!map.has(e.date)) map.set(e.date, []);
+        map.get(e.date).push(e);
+      });
+    return Array.from(map.entries());
+  }, [filtered]);
+
+  const chartData = useMemo(() => {
+    const buckets = buildBuckets(range);
+    return buckets.map((b) => {
+      const row = { period: b.label };
+      let total = 0;
+      subjects.forEach((s) => {
+        const c = entries.filter((e) => e.subjectId === s.id && inBucket(e.date, b)).length;
+        row[s.id] = c;
+        total += c;
+      });
+      row.total = total;
+      return row;
+    });
+  }, [entries, subjects, range]);
+
+  return (
+    <div
+      className="min-h-screen w-full"
+      style={{
+        backgroundColor: PAPER,
+        backgroundImage: `linear-gradient(${GRID} 1px, transparent 1px), linear-gradient(90deg, ${GRID} 1px, transparent 1px)`,
+        backgroundSize: '22px 22px',
+        color: INK,
+        fontFamily: "'Source Serif 4', Georgia, serif",
+      }}
+    >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+        .mono { font-family: 'Space Mono', monospace; }
+        ::selection { background: #2B4C7E33; }
+      `}</style>
+
+      <div className="max-w-2xl mx-auto px-4 pt-8 pb-16">
+        {/* Header */}
+        <header className="flex items-start justify-between mb-5">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <BookOpen size={20} strokeWidth={2} style={{ color: '#2B4C7E' }} />
+              <h1 className="mono text-2xl tracking-tight" style={{ fontWeight: 700 }}>
+                LOGBOOK
+              </h1>
+            </div>
+            <p className="text-sm" style={{ color: MUTED }}>
+              A year of physics, mathematics, computation & the world.
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setManageOpen((v) => !v)}
+              className="p-2 rounded-sm"
+              style={{ backgroundColor: manageOpen ? INK : CARD, border: `1px solid ${BORDER}`, color: manageOpen ? PAPER : MUTED }}
+              title="Manage fields"
+            >
+              <Settings2 size={16} />
+            </button>
+            <div
+              className="flex items-center gap-1.5 px-3 py-2 rounded-sm mono text-sm"
+              style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}
+              title="Consecutive days logged"
+            >
+              <Flame size={16} style={{ color: streak > 0 ? '#C69214' : MUTED }} />
+              <span style={{ fontWeight: 700 }}>{streak}</span>
+              <span style={{ color: MUTED }}>day{streak === 1 ? '' : 's'}</span>
+            </div>
+          </div>
+        </header>
+
+        {loading ? (
+          <div className="flex items-center gap-2 py-16 justify-center" style={{ color: MUTED }}>
+            <Loader2 size={18} className="animate-spin" />
+            <span className="mono text-sm">loading entries…</span>
+          </div>
+        ) : (
+          <>
+            {/* Manage fields panel */}
+            {manageOpen && (
+              <div className="rounded-sm p-4 mb-5" style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="mono text-xs" style={{ color: MUTED, letterSpacing: '0.05em' }}>MANAGE FIELDS</p>
+                  <button onClick={() => setManageOpen(false)} style={{ color: MUTED }}><X size={15} /></button>
+                </div>
+                <div className="space-y-2">
+                  {subjects.map((s) => (
+                    <div key={s.id} className="flex items-center gap-2">
+                      <div className="flex gap-1">
+                        {PALETTE.map((c) => (
+                          <button
+                            key={c}
+                            onClick={() => updateField(s.id, { color: c })}
+                            className="w-4 h-4 rounded-full shrink-0"
+                            style={{
+                              backgroundColor: c,
+                              outline: s.color === c ? `2px solid ${INK}` : 'none',
+                              outlineOffset: '1px',
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <input
+                        value={s.label}
+                        onChange={(e) => updateField(s.id, { label: e.target.value })}
+                        className="flex-1 min-w-0 text-sm px-2 py-1.5 rounded-sm outline-none"
+                        style={{ backgroundColor: PAPER, border: `1px solid ${BORDER}`, color: INK }}
+                      />
+                      <button onClick={() => removeField(s.id)} style={{ color: '#A8472E' }} title="Remove field">
+                        <Trash2 size={14} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 mt-3 pt-3" style={{ borderTop: `1px solid ${BORDER}` }}>
+                  <input
+                    value={newFieldName}
+                    onChange={(e) => setNewFieldName(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && addField()}
+                    placeholder="New field name…"
+                    className="flex-1 min-w-0 text-sm px-2 py-1.5 rounded-sm outline-none"
+                    style={{ backgroundColor: PAPER, border: `1px solid ${BORDER}`, color: INK }}
+                  />
+                  <button
+                    onClick={addField}
+                    className="mono text-xs px-2.5 py-1.5 rounded-sm flex items-center gap-1"
+                    style={{ backgroundColor: INK, color: PAPER, fontWeight: 700 }}
+                  >
+                    <Plus size={13} /> Add
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* View toggle */}
+            <div className="flex gap-1.5 mb-5">
+              <button
+                onClick={() => setView('journal')}
+                className="mono text-xs px-3 py-1.5 rounded-sm flex items-center gap-1.5"
+                style={{
+                  border: `1px solid ${view === 'journal' ? INK : BORDER}`,
+                  backgroundColor: view === 'journal' ? INK : 'transparent',
+                  color: view === 'journal' ? PAPER : MUTED,
+                }}
+              >
+                <NotebookPen size={13} /> Journal
+              </button>
+              <button
+                onClick={() => setView('progress')}
+                className="mono text-xs px-3 py-1.5 rounded-sm flex items-center gap-1.5"
+                style={{
+                  border: `1px solid ${view === 'progress' ? INK : BORDER}`,
+                  backgroundColor: view === 'progress' ? INK : 'transparent',
+                  color: view === 'progress' ? PAPER : MUTED,
+                }}
+              >
+                <BarChart3 size={13} /> Progress
+              </button>
+            </div>
+
+            {view === 'journal' ? (
+              <>
+                {/* New entry panel */}
+                <div className="rounded-sm p-4 mb-6" style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {subjects.map((s) => {
+                      const active = form.subjectId === s.id;
+                      return (
+                        <button
+                          key={s.id}
+                          onClick={() => setForm((f) => ({ ...f, subjectId: s.id }))}
+                          className="mono text-xs px-2.5 py-1.5 rounded-sm transition"
+                          style={{
+                            border: `1px solid ${active ? s.color : BORDER}`,
+                            backgroundColor: active ? s.color : 'transparent',
+                            color: active ? '#FAFBF6' : MUTED,
+                            fontWeight: active ? 700 : 400,
+                          }}
+                        >
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <textarea
+                    value={form.notes}
+                    onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
+                    placeholder="What did you study today? Key ideas, problems solved, questions still open…"
+                    rows={3}
+                    className="w-full text-sm p-2.5 rounded-sm resize-none outline-none"
+                    style={{ backgroundColor: PAPER, border: `1px solid ${BORDER}`, color: INK, fontFamily: "'Source Serif 4', Georgia, serif" }}
+                  />
+
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    <div className="flex items-center gap-1.5 flex-1 min-w-[160px]">
+                      <Link2 size={14} style={{ color: MUTED }} />
+                      <input
+                        value={form.link}
+                        onChange={(e) => setForm((f) => ({ ...f, link: e.target.value }))}
+                        placeholder="Link to the chat/session (optional)"
+                        className="w-full text-xs p-2 rounded-sm outline-none"
+                        style={{ backgroundColor: PAPER, border: `1px solid ${BORDER}`, color: INK }}
+                      />
+                    </div>
+                    <input
+                      type="date"
+                      value={form.date}
+                      onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
+                      className="mono text-xs p-2 rounded-sm outline-none"
+                      style={{ backgroundColor: PAPER, border: `1px solid ${BORDER}`, color: INK }}
+                    />
+                    <button
+                      onClick={addEntry}
+                      disabled={saving}
+                      className="mono text-xs px-3 py-2 rounded-sm flex items-center gap-1"
+                      style={{ backgroundColor: INK, color: PAPER, fontWeight: 700 }}
+                    >
+                      {saving ? <Loader2 size={13} className="animate-spin" /> : <Plus size={13} />}
+                      Log it
+                    </button>
+                  </div>
+                  {error && <p className="text-xs mt-2" style={{ color: '#A8472E' }}>{error}</p>}
+                </div>
+
+                {/* Filter tabs */}
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  <button
+                    onClick={() => setFilter('all')}
+                    className="mono text-xs px-2.5 py-1 rounded-sm"
+                    style={{
+                      border: `1px solid ${filter === 'all' ? INK : BORDER}`,
+                      backgroundColor: filter === 'all' ? INK : 'transparent',
+                      color: filter === 'all' ? PAPER : MUTED,
+                    }}
+                  >
+                    All ({entries.length})
+                  </button>
+                  {subjects.map((s) => (
+                    <button
+                      key={s.id}
+                      onClick={() => setFilter(s.id)}
+                      className="mono text-xs px-2.5 py-1 rounded-sm"
+                      style={{
+                        border: `1px solid ${filter === s.id ? s.color : BORDER}`,
+                        backgroundColor: filter === s.id ? s.color : 'transparent',
+                        color: filter === s.id ? '#FAFBF6' : MUTED,
+                      }}
+                    >
+                      {s.label} ({subjectCounts[s.id] || 0})
+                    </button>
+                  ))}
+                </div>
+
+                {/* Entries */}
+                {grouped.length === 0 ? (
+                  <div className="text-center py-14 rounded-sm" style={{ border: `1px dashed ${BORDER}`, color: MUTED }}>
+                    <p className="text-sm">
+                      {entries.length === 0 ? 'Empty page. Log today\u2019s session above to start the streak.' : 'Nothing under this tab yet.'}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    {grouped.map(([date, dayEntries]) => (
+                      <div key={date}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="mono text-xs" style={{ color: MUTED }}>{formatDateHeading(date)}</span>
+                          <div className="flex-1 h-px" style={{ backgroundColor: BORDER }} />
+                        </div>
+                        <div className="space-y-2">
+                          {dayEntries.map((e) => {
+                            const subj = subjectOf(e.subjectId, subjects);
+                            return (
+                              <div
+                                key={e.id}
+                                className="rounded-sm p-3 flex gap-3"
+                                style={{ backgroundColor: CARD, border: `1px solid ${BORDER}`, borderLeft: `3px solid ${subj.color}` }}
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <span
+                                    className="mono text-[10px] px-1.5 py-0.5 rounded-sm inline-block mb-1.5"
+                                    style={{ backgroundColor: `${subj.color}22`, color: subj.color, fontWeight: 700 }}
+                                  >
+                                    {subj.label}
+                                  </span>
+                                  <p className="text-sm leading-relaxed whitespace-pre-wrap">{e.notes}</p>
+                                  {e.link && (
+                                    <a href={e.link} target="_blank" rel="noreferrer" className="text-xs mt-1.5 inline-flex items-center gap-1 hover:underline" style={{ color: '#2B4C7E' }}>
+                                      <Link2 size={11} /> session link
+                                    </a>
+                                  )}
+                                </div>
+                                <button onClick={() => deleteEntry(e.id)} className="self-start opacity-40 hover:opacity-100 transition" style={{ color: '#A8472E' }} title="Delete entry">
+                                  <Trash2 size={15} />
+                                </button>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                {/* Progress view */}
+                <div className="rounded-sm p-4 mb-5" style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}>
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div className="flex gap-1.5">
+                      {[['category', 'Category-wise'], ['total', 'All together']].map(([key, label]) => (
+                        <button
+                          key={key}
+                          onClick={() => setGrouping(key)}
+                          className="mono text-[11px] px-2.5 py-1 rounded-sm"
+                          style={{
+                            border: `1px solid ${grouping === key ? INK : BORDER}`,
+                            backgroundColor: grouping === key ? INK : 'transparent',
+                            color: grouping === key ? PAPER : MUTED,
+                          }}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="flex gap-1.5">
+                      {[['weekly', 'Weekly'], ['monthly', 'Monthly'], ['yearly', 'Yearly']].map(([key, label]) => (
+                        <button
+                          key={key}
+                          onClick={() => setRange(key)}
+                          className="mono text-[11px] px-2.5 py-1 rounded-sm"
+                          style={{
+                            border: `1px solid ${range === key ? '#2B4C7E' : BORDER}`,
+                            backgroundColor: range === key ? '#2B4C7E' : 'transparent',
+                            color: range === key ? '#FAFBF6' : MUTED,
+                          }}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {entries.length === 0 ? (
+                    <div className="text-center py-14" style={{ color: MUTED }}>
+                      <p className="text-sm">No entries yet — nothing to chart.</p>
+                    </div>
+                  ) : (
+                    <ResponsiveContainer width="100%" height={280}>
+                      <BarChart data={chartData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                        <CartesianGrid stroke={GRID} vertical={false} />
+                        <XAxis dataKey="period" tick={{ fontSize: 10, fontFamily: 'Space Mono', fill: MUTED }} axisLine={{ stroke: BORDER }} tickLine={false} />
+                        <YAxis allowDecimals={false} tick={{ fontSize: 10, fontFamily: 'Space Mono', fill: MUTED }} axisLine={false} tickLine={false} />
+                        <Tooltip
+                          contentStyle={{ background: CARD, border: `1px solid ${BORDER}`, fontSize: 12, fontFamily: 'Space Mono', borderRadius: 2 }}
+                          labelStyle={{ color: INK, fontWeight: 700 }}
+                          cursor={{ fill: `${INK}0A` }}
+                        />
+                        {grouping === 'category' ? (
+                          <>
+                            <Legend wrapperStyle={{ fontSize: 10, fontFamily: 'Space Mono' }} iconSize={8} />
+                            {subjects.map((s) => (
+                              <Bar key={s.id} dataKey={s.id} stackId="a" fill={s.color} name={s.label} />
+                            ))}
+                          </>
+                        ) : (
+                          <Bar dataKey="total" fill={INK} radius={[2, 2, 0, 0]} name="Entries" />
+                        )}
+                      </BarChart>
+                    </ResponsiveContainer>
+                  )}
+                </div>
+
+                {/* All-time stats */}
+                <div className="rounded-sm p-4" style={{ backgroundColor: CARD, border: `1px solid ${BORDER}` }}>
+                  <div className="grid grid-cols-3 gap-3 mb-4 text-center">
+                    <div>
+                      <p className="mono text-lg" style={{ fontWeight: 700 }}>{entries.length}</p>
+                      <p className="mono text-[10px]" style={{ color: MUTED }}>TOTAL LOGS</p>
+                    </div>
+                    <div>
+                      <p className="mono text-lg" style={{ fontWeight: 700, color: '#C69214' }}>{streak}</p>
+                      <p className="mono text-[10px]" style={{ color: MUTED }}>CURRENT STREAK</p>
+                    </div>
+                    <div>
+                      <p className="mono text-lg" style={{ fontWeight: 700 }}>{longestStreak}</p>
+                      <p className="mono text-[10px]" style={{ color: MUTED }}>LONGEST STREAK</p>
+                    </div>
+                  </div>
+                  <p className="mono text-[10px] mb-2.5" style={{ color: MUTED, letterSpacing: '0.05em' }}>ALL-TIME DISTRIBUTION</p>
+                  <div className="space-y-1.5">
+                    {subjects.map((s) => (
+                      <div key={s.id} className="flex items-center gap-2">
+                        <span className="mono text-[10px] w-24 shrink-0 truncate" style={{ color: MUTED }}>{s.label}</span>
+                        <div className="flex-1 h-2 rounded-sm overflow-hidden" style={{ backgroundColor: BORDER }}>
+                          <div className="h-full" style={{ width: `${((subjectCounts[s.id] || 0) / maxCount) * 100}%`, backgroundColor: s.color }} />
+                        </div>
+                        <span className="mono text-[10px] w-5 text-right" style={{ color: MUTED }}>{subjectCounts[s.id] || 0}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-3 mt-4 flex-wrap">
+                    <button onClick={exportData} className="mono text-[10px] flex items-center gap-1" style={{ color: '#2B4C7E' }}>
+                      <Download size={11} /> export backup
+                    </button>
+                    <button onClick={triggerImport} className="mono text-[10px] flex items-center gap-1" style={{ color: '#2B4C7E' }}>
+                      <Upload size={11} /> import backup
+                    </button>
+                    <input ref={fileInputRef} type="file" accept="application/json" onChange={importData} className="hidden" />
+                    <button onClick={clearAll} className="mono text-[10px]" style={{ color: MUTED, textDecoration: 'underline' }}>
+                      clear all entries
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+          </>
+        )}
+
+        <footer className="mt-10 text-center">
+          <p className="mono text-[10px] tracking-wide" style={{ color: MUTED, opacity: 0.6 }}>
+            obviously built by a physicist — Shubhro
+          </p>
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+</body>
+</html>

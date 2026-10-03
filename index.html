@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1F2A24" />
+    <meta name="description" content="A daily learning journal for physics, mathematics, computation and the world — built by a physicist." />
+    <title>Logbook</title>
+    <script>
+      window.addEventListener('error', function (e) {
+        var box = document.getElementById('fatal-error-box');
+        if (!box) {
+          box = document.createElement('div');
+          box.id = 'fatal-error-box';
+          box.style.cssText = 'position:fixed;inset:0;background:#1F2A24;color:#F1F3EC;font-family:monospace;font-size:13px;padding:20px;z-index:99999;overflow:auto;white-space:pre-wrap;';
+          document.body.appendChild(box);
+        }
+        box.textContent = 'Something broke while loading the app:\n\n' + (e.error ? (e.error.stack || e.error.message) : e.message);
+      });
+    </script>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Load order matters: libraries, storage, then the app -->
+    <script src="vendor.js"></script>
+    <script src="storage.js"></script>
+    <script src="app.js"></script>
+    <script>
+      // Makes the app work offline (see sw.js). Needs https:// or localhost.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('sw.js').catch(function (err) {
+            console.warn('Offline mode could not start:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
